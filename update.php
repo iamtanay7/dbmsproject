@@ -14,7 +14,13 @@ include 'establish.php';
 
 </head>
 <body>
-	<form action="#" method="post">
+	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+		<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-5">Update Record</h1>
+     <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+   </div>
+</div>
 		<div class="container">
 		<div class="form-group">
 			<label for="foryear">Select Year</label>
@@ -28,34 +34,40 @@ include 'establish.php';
 		</div>
 		<div class="form-group">
 			<label for="compp">Enter name of company</label>
-			<input type="text" name="comp" class="form-control" id="compp">
+			<input type="text" name="comp" class="form-control" id="compp" required="">
 		</div>
 <div class="form-group">
-	<select name="options" class="form-control" required="">
-		<option value="CRITERIA_CGPA"></option>
-		<option value="CRITERIA_BRANCH"></option>
-		<option value="BE_CE_1st_SHIFT"></option>
-		<option value="BE_CE_2nd_SHIFT"></option>
-		<option value="BE_ENTC_1st_SHIFT"></option>
-		<option value="BE_ENTC_2nd_SHIFT"></option>
-		<option value="BE_IT"></option>
-		<option value="ME_CE"></option>
-		<option value="ME_ENTC"></option>
-		<option value="ME_IT"></option>
-		<option value="MALES"></option>
-		<option value=""></option>
-		<option value="SALARY"></option>
+	<label for="options">Select criteria to modify</label>
+	<select name="options" class="form-control" required="" id="options">
+		<option value="" selected="">none selected</option>
+		<option value="CRITERIA_CGPA" >CRITERIA_CGPA</option>
+		<option value="CRITERIA_BRANCH">CRITERIA_BRANCH</option>
+		<option value="BE_CE_1st_SHIFT">BE_CE_1st_SHIFT</option>
+		<option value="BE_CE_2nd_SHIFT">BE_CE_2nd_SHIFT</option>
+		<option value="BE_ENTC_1st_SHIFT">BE_ENTC_1st_SHIFT</option>
+		<option value="BE_ENTC_2nd_SHIFT">BE_ENTC_2nd_SHIFT</option>
+		<option value="BE_IT">BE_IT</option>
+		<option value="ME_CE">ME_CE</option>
+		<option value="ME_ENTC">ME_ENTC</option>
+		<option value="ME_IT">ME_IT</option>
+		<option value="MALES">MALES</option>
+		<option value="FEMALES">FEMALES</option>
+		<option value="SALARY">SALARY</option>
 		
 
 	</select>
+</div>
+<div class="form-group">
+	<label for="newval">Enter new value</label>
+	<input type="text" name="newval" class="form-control" id="newval">
 </div>
 
 		<input type="submit" name="updbtn" class="btn btn-primary">
 		</div>
 </form>
-
-<script type="text/javascript">
-	
-</script>
 </body>
 </html>
+
+<?php
+		
+  ?>
