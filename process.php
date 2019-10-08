@@ -3,7 +3,6 @@ include 'establish.php';
 ?>
 <?php
 session_start();
-
 $sql1 = $_SESSION["sql1"];
 $result = $conn->query($sql1);
 if (!$result) {
@@ -95,10 +94,21 @@ Salary:
 Year:
 <select required name="year">
   <option value="">none selected</option>
-  <option value="report18"<?php if($_SESSION["year"]=="report18") echo "selected"; ?>>2018</option>
-  <option value="report17"<?php if($_SESSION["year"]=="report17") echo "selected"; ?>>2017</option>
-  <option value="report16"<?php if($_SESSION["year"]=="report16") echo "selected"; ?>>2016</option>
-  <option value="report15"<?php if($_SESSION["year"]=="report15") echo "selected"; ?>>2015</option>
+  <?php 
+  	$res = $conn->query("show tables");
+  	$i=0;
+  	while($row = $res->fetch_assoc())
+  	{
+  		echo '<option value="'.$row["Tables_in_myDB"].'"';
+  		if($_SESSION["year"]==$row["Tables_in_myDB"]) echo 'selected';
+  		echo '>'.$row["Tables_in_myDB"].'</option>';
+  		$i++;
+  	}
+  ?>
+ <!--  <option value="report2018"<?php if($_SESSION["year"]=="report2018") echo "selected"; ?>>report2018</option>
+  <option value="report2017"<?php if($_SESSION["year"]=="report2017") echo "selected"; ?>>report2017</option>
+  <option value="report2016"<?php if($_SESSION["year"]=="report2016") echo "selected"; ?>>report2016</option>
+  <option value="report2015"<?php if($_SESSION["year"]=="report2015") echo "selected"; ?>>report2015</option> -->
 </select>
 
 

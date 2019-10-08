@@ -14,7 +14,7 @@ include 'establish.php';
 
 </head>
 <body>
-	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+	<form action="/dbmsproject/handle.php" method="post">
 		<div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-5">Update Record</h1>
@@ -26,10 +26,15 @@ include 'establish.php';
 			<label for="foryear">Select Year</label>
 			<select name="year" class="form-control" required="" id="foryear">
 			  <option value="" >none selected</option>
-			  <option value="report18">2018</option>
-			  <option value="report17">2017</option>
-			  <option value="report16">2016</option>
-			  <option value="report15">2015</option>
+			   <?php 
+    $res = $conn->query("show tables");
+    
+    while($row = $res->fetch_assoc())
+    {
+      echo '<option value="'.$row["Tables_in_myDB"].'">'.$row["Tables_in_myDB"].'</option>';
+      
+    }
+  ?>
 			</select>
 		</div>
 		<div class="form-group">
@@ -53,7 +58,7 @@ include 'establish.php';
 		<option value="MALES">MALES</option>
 		<option value="FEMALES">FEMALES</option>
 		<option value="SALARY">SALARY</option>
-		
+
 
 	</select>
 </div>
@@ -67,7 +72,3 @@ include 'establish.php';
 </form>
 </body>
 </html>
-
-<?php
-		
-  ?>

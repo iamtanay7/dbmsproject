@@ -1,3 +1,4 @@
+<?php include 'establish.php';?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,10 +27,15 @@
 	<label>  SELECT YEAR:</label>
 <select required name="year" class="form-control">
   <option value="">none selected</option>
-  <option value="report18">2018</option>
-  <option value="report17">2017</option>
-  <option value="report16">2016</option>
-  <option value="report15">2015</option>
+  <?php 
+    $res = $conn->query("show tables");
+    
+    while($row = $res->fetch_assoc())
+    {
+      echo '<option value="'.$row["Tables_in_myDB"].'">'.$row["Tables_in_myDB"].'</option>';
+      
+    }
+  ?>
 </select>
 </div>
 <div class="form-group">

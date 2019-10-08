@@ -1,7 +1,7 @@
 <?php
 session_start();
-	$_SESSION["year"]=$_POST["year"];
-	$_SESSION["CGPA"]=$_POST["CGPA"];
+$_SESSION["year"]=$_POST["year"];
+$_SESSION["CGPA"]=$_POST["CGPA"];
 $_SESSION["Salary"]=$_POST["Salary"];
 
 
@@ -14,7 +14,7 @@ if(isset($_POST["year"])&& $_POST["year"]!=="none")
 	$sql1="select * from ".$_POST["year"];
 }
 else
-$sql1="select * from report18 ";    
+$sql1="select * from report2018 ";    
 $search = $_POST["searchcomp"];
 $_SESSION["searchcomp"]=$search;
 if(strlen($search)!==0)

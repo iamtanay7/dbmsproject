@@ -22,12 +22,17 @@
  
 </ul>
 
-
-<form action = "/dbmsproject/admincheck.php" method="post">
 <div class="container">
-<div class="form-check">
+<form action = "/dbmsproject/admincheck.php" method="post">
   
   <hr>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="some" value="create" id="defaultCheck4">
+  <label class="form-check-label" for="defaultCheck4">
+    Create new table
+  </label>
+</div>
+<div class="form-check" >
 	<input class="form-check-input" type="radio" name="some" value="update" required="" id="defaultCheck1"> 
 	 <label class="form-check-label" for="defaultCheck1">
 	 	Modify existing record

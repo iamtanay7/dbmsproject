@@ -20,6 +20,9 @@ if(isset($_POST["submit"]))
 		case "insert":
 		header("refresh:1;url=/dbmsproject/insert.php");
 		break;
+		case "create":
+		header("refresh:1;url=/dbmsproject/create.php");
+		break;
 		default:
 			# code...
 			break;
